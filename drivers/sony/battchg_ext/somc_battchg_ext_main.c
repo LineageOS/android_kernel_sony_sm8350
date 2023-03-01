@@ -353,11 +353,6 @@ static int somc_bcext_smart_set_suspend(struct somc_bcext_dev *bcext_dev,
 {
 	int rc = 0;
 
-	if (!bcext_dev->smart_charge_enabled) {
-		pr_err("Couldn't set smart charge voter due to unactivated\n");
-		return rc;
-	}
-
 	if (smart_charge_suspended)
 		somc_bcext_start_fake_charging(bcext_dev, SMART_EN_VOTER);
 	else
@@ -1005,36 +1000,6 @@ static ssize_t lrc_charge_disable_show(struct class *c,
 }
 static CLASS_ATTR_RW(lrc_charge_disable);
 
-static ssize_t smart_charging_activation_store(struct class *c,
-		struct class_attribute *attr, const char *buf, size_t count)
-{
-	struct somc_bcext_dev *bcext_dev = container_of(c,
-					struct somc_bcext_dev, bcext_class);
-	int val;
-
-	if (kstrtoint(buf, 10, &val))
-		return -EINVAL;
-
-	if (val == 1)
-		bcext_dev->smart_charge_enabled = true;
-	else if (val == 0)
-		bcext_dev->smart_charge_enabled = false;
-	else
-		return -EINVAL;
-
-	return count;
-}
-static ssize_t smart_charging_activation_show(struct class *c,
-					struct class_attribute *attr, char *buf)
-{
-	struct somc_bcext_dev *bcext_dev = container_of(c,
-					struct somc_bcext_dev, bcext_class);
-
-	return scnprintf(buf, PAGE_SIZE, "%d\n",
-					bcext_dev->smart_charge_enabled);
-}
-static CLASS_ATTR_RW(smart_charging_activation);
-
 static ssize_t smart_charging_interruption_store(struct class *c,
 		struct class_attribute *attr, const char *buf, size_t count)
 {
@@ -1454,7 +1419,6 @@ static struct attribute *somc_bcext_class_attrs[] = {
 	&class_attr_wls_tx_iin.attr,
 	&class_attr_lrc_input_suspend.attr,
 	&class_attr_lrc_charge_disable.attr,
-	&class_attr_smart_charging_activation.attr,
 	&class_attr_smart_charging_interruption.attr,
 	&class_attr_smart_charging_status.attr,
 	&class_attr_wls_guaranteed_pwr.attr,
