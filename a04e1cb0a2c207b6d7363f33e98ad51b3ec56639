@@ -16,6 +16,23 @@
       "message": "The maximum normally allowed brightness is 2047, and above it is the high brightness mode.",
       "revId": "a04e1cb0a2c207b6d7363f33e98ad51b3ec56639",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbb5f5ea_c2ab97e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14962
+      },
+      "writtenOn": "2023-05-14T08:08:25Z",
+      "side": 1,
+      "message": "Verified to be compiled. qcom,mdss-brightness-max-level and somc,brightness-max-level values are the same on pdx214.",
+      "revId": "a04e1cb0a2c207b6d7363f33e98ad51b3ec56639",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
