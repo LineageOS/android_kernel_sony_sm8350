@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66b25022_adc6ba02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31578
+      },
+      "writtenOn": "2023-06-14T06:17:39Z",
+      "side": 1,
+      "message": "https://github.com/hellobbn/android_kernel_sony_sm8350",
+      "revId": "c8ef6939747e396e0285e65877a6346b45e0f1b9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
