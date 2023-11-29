@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df9ea5b1_2f5730ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31578
+      },
+      "writtenOn": "2023-11-29T12:49:02Z",
+      "side": 1,
+      "message": "Let\u0027s merge this in lineage-20 if possible",
+      "revId": "9602786fa4c30f722f36e437b12b8e170602c677",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
