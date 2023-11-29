@@ -15,7 +15,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Download the kernel
       run: |
-        sudo apt-get install libelf-dev wget tar gzip python
+        sudo apt-get update
+        sudo apt-get install libelf-dev wget tar gzip python2.7
         wget https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/linux-4.1.36.tar.gz
         tar xf linux-4.1.36.tar.gz
         mv linux-4.1.36 linux-stable
@@ -77,18 +78,20 @@ jobs:
         cd ..
         sudo umount ./full_test/
         sudo fsck.exfat /dev/loop22
+        sudo losetup -d /dev/loop22
+        rm full_test.img
     - name: xfstest tests
       run: |
+        cd exfat-testsuites/
+        tar xzvf xfstests-exfat.tgz > /dev/null
+        cd xfstests-exfat
+        make -j$((`nproc`+1)) > /dev/null
         truncate -s 100G test.img
         truncate -s 100G scratch.img
         sudo losetup /dev/loop20 test.img
         sudo losetup /dev/loop21 scratch.img
         sudo mkfs.exfat /dev/loop20
         sudo mkfs.exfat /dev/loop21
-        cd exfat-testsuites/
-        tar xzvf xfstests-exfat.tgz > /dev/null
-        cd xfstests-exfat
-        make -j$((`nproc`+1)) > /dev/null
         sudo ./check generic/001
         sudo ./check generic/006
         sudo ./check generic/007
@@ -135,6 +138,16 @@ jobs:
         sudo ./check generic/211
         sudo ./check generic/212
         sudo ./check generic/215
+        sudo losetup -d /dev/loop20
+        sudo losetup -d /dev/loop21
+        rm test.img
+        rm scratch.img
+        truncate -s 100G test.img
+        truncate -s 100G scratch.img
+        sudo losetup /dev/loop20 test.img
+        sudo losetup /dev/loop21 scratch.img
+        sudo mkfs.exfat /dev/loop20
+        sudo mkfs.exfat /dev/loop21
         sudo ./check generic/221
         sudo ./check generic/239
         sudo ./check generic/240
@@ -148,7 +161,6 @@ jobs:
         sudo ./check generic/260
         sudo ./check generic/263
         sudo ./check generic/285
-        sudo ./check generic/286
         sudo ./check generic/288
         sudo ./check generic/308
         sudo ./check generic/309

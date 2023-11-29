@@ -951,7 +951,7 @@ tmc_etr_buf_insert_barrier_packet(struct etr_buf *etr_buf, u64 offset)
 
 	len = tmc_etr_buf_get_data(etr_buf, offset,
 				   CORESIGHT_BARRIER_PKT_SIZE, &bufp);
-	if (WARN_ON(len < CORESIGHT_BARRIER_PKT_SIZE))
+	if (WARN_ON(len < 0 || len < CORESIGHT_BARRIER_PKT_SIZE))
 		return -EINVAL;
 	coresight_insert_barrier_packet(bufp);
 	return offset + CORESIGHT_BARRIER_PKT_SIZE;
@@ -1129,9 +1129,11 @@ tmc_etr_setup_sysfs_buf(struct tmc_drvdata *drvdata)
 			&& drvdata->byte_cntr->sw_usb)
 			new_buf = tmc_alloc_etr_buf(drvdata, TMC_ETR_SW_USB_BUF_SIZE,
 					 0, cpu_to_node(0), NULL);
-		else if (drvdata->out_mode == TMC_ETR_OUT_MODE_PCIE)
+		else if (drvdata->out_mode == TMC_ETR_OUT_MODE_PCIE) {
 			new_buf = tmc_alloc_etr_buf(drvdata, TMC_ETR_PCIE_MEM_SIZE,
 					 0, cpu_to_node(0), NULL);
+			drvdata->size = TMC_ETR_PCIE_MEM_SIZE;
+		}
 		else
 			new_buf = tmc_alloc_etr_buf(drvdata, drvdata->size,
 					 0, cpu_to_node(0), NULL);
