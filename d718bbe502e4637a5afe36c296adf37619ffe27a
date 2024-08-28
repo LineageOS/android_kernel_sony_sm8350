@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94be8b0f_bfe6e713",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14962
+      },
+      "writtenOn": "2024-08-28T02:26:06Z",
+      "side": 1,
+      "message": "On the pdx214, Wi-Fi won\u0027t connect and video recording crashes.\nI\u0027m trying too, but it\u0027s not resolved yet.\nhttps://github.com/kyasu/android_kernel_sony_sm8350",
+      "revId": "d718bbe502e4637a5afe36c296adf37619ffe27a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
