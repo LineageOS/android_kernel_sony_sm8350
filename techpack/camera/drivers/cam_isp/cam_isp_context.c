@@ -2324,8 +2324,8 @@ static int __cam_isp_ctx_epoch_in_applied(struct cam_isp_context *ctx_isp,
 	void *evt_data)
 {
 	uint64_t request_id = 0;
-	uint32_t i;
-	uint32_t sof_event_status = CAM_REQ_MGR_SOF_EVENT_SUCCESS;
+	// uint32_t i;
+	// uint32_t sof_event_status = CAM_REQ_MGR_SOF_EVENT_SUCCESS;
 	struct cam_req_mgr_trigger_notify   notify;
 /* sony extension begin */
 	// struct cam_ctx_request             *req;
@@ -4761,7 +4761,7 @@ error:
 	return 0;
 }
 
-static int __cam_isp_ctx_rdi_only_reg_upd_in_applied_state(
+__attribute__((unused)) static int __cam_isp_ctx_rdi_only_reg_upd_in_applied_state(
 	struct cam_isp_context *ctx_isp, void *evt_data)
 {
 	struct cam_ctx_request  *req = NULL;

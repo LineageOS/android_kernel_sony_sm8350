@@ -550,11 +550,10 @@ static void msm_restart_prepare(const char *cmd)
 	} else
 		msm_set_dt_restart_reason("unknown");
 
-		if (reason && nvmem_cell)
-			nvmem_cell_write(nvmem_cell, &reason, sizeof(reason));
-		else
-			qpnp_pon_set_restart_reason(
-				(enum pon_restart_reason)reason);
+	if (reason && nvmem_cell)
+		nvmem_cell_write(nvmem_cell, &reason, sizeof(reason));
+	else
+		qpnp_pon_set_restart_reason((enum pon_restart_reason)reason);
 
 	/*outer_flush_all is not supported by 64bit kernel*/
 #ifndef CONFIG_ARM64

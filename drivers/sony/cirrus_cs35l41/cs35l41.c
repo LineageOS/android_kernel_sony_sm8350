@@ -293,6 +293,7 @@ static int cs35l41_dsp_load_ev(struct snd_soc_dapm_widget *w,
 				break;
 			}
 			ret = cs35l41_set_csplmboxcmd(cs35l41, mboxcmd);
+			(void)ret;
 		}
 		break;
 	default:
@@ -499,6 +500,7 @@ static int cs35l41_ccm_reset_put(struct snd_kcontrol *kcontrol,
 			CS35L41_HALO_CORE_RESET, CS35L41_HALO_CORE_RESET);
 		ret = regmap_update_bits(cs35l41->regmap, CS35L41_DSP_CLK_CTRL,
 			0x3, 0x3);
+		(void)ret;
 	}
 
 	return 0;
