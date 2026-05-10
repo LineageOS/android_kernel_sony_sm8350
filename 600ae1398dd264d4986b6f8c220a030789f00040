@@ -16,6 +16,24 @@
       "message": "This file looks like just the full defconfig, not minimized to a fragment on top of default defconfig",
       "revId": "600ae1398dd264d4986b6f8c220a030789f00040",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fdd904d_bf12cced",
+        "filename": "arch/arm64/configs/vendor/sagami.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 14962
+      },
+      "writtenOn": "2026-05-10T04:58:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a265c59_5883a7f9",
+      "revId": "600ae1398dd264d4986b6f8c220a030789f00040",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
