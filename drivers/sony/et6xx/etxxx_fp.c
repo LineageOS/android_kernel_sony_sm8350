@@ -1391,7 +1391,7 @@ egistec_probe_failed:
 }
 
 
-int __init egis7xx_init(void)
+static int __init egis7xx_init(void)
 {
 	int status = 0;
 	pr_info("[Egis] module init ! \n");
@@ -1407,7 +1407,7 @@ int __init egis7xx_init(void)
 	pr_info(" [Egis] module init OK ! \n");
 	return status;
 }
-void __exit egis7xx_exit(void)
+static void __exit egis7xx_exit(void)
 {
 	pr_info(" [Egis] module exit ! \n");
 #if defined(MTK_PLATFORM) || defined(PLATFORM_SPI)
